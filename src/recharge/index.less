@@ -2,6 +2,119 @@
   padding-bottom: 100px;
   height: 100vh;
   box-sizing: border-box;
-  background: #f3f3f3;
+  background: #EFEFEF;
   overflow-y: scroll;
+}
+.header {
+  background: #1C1C34;
+  color: #ffffff;
+  text-align: center;
+  font-size: 30px;
+  padding: 100px 0;
+  border-radius: 0 0 15% 15%;
+  &_title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+  }
+  &_value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 0;
+    font-size: 56px;
+    line-height: 60px;
+    font-weight: 700;
+  }
+  &_id {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 500;
+    opacity: .5;
+  }
+}
+.main {
+  position: relative;
+  margin-top: -80px;
+  padding: 24px 30px;
+  &_card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    &_title {
+      font-size: 32px;
+      font-weight: 600;
+      color: #333;
+      line-height: 42px;
+      padding-bottom: 20px;
+    }
+    &_desc {
+      font-size: 24px;
+      font-weight: 500;
+      color: #969696;
+      line-height: 42px;
+      padding-bottom: 20px;
+    }
+    &_tip {
+      font-size: 24px;
+      font-weight: 500;
+      color: #969696;
+      line-height: 42px;
+      padding-bottom: 20px;
+    }
+  }
+  &_info {
+    background: #ffffff;
+    padding: 30px 0;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    &_charge {
+      padding: 30px 14px;
+      border-bottom: 1px solid #F2F2F2;
+      display: flex;
+      &_input {
+        flex: 1;
+        height: 120px;
+        line-height: 60px;
+        border: 0;
+        margin: 0;
+        outline: none;
+        font-size: 40px;
+        font-weight: 500;
+        color: #222;
+        border-radius: 40px;
+        padding: 20px 50px;
+      }
+    }
+    &_action {
+      padding: 60px 60px 30px;
+      &_submit {
+        height: 92px;
+        background: linear-gradient(90deg, #D4B38F 0%, #B88964 100%);
+        border-radius: 92px;
+        color: #ffffff;
+        font-size: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+  &_tip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #969696;
+    font-size: 26px;
+    line-height: 44px;
+    .van-icon {
+      line-height: 44px;
+      font-size: 40px;
+      margin-right: 10px;
+    }
+  }
 }

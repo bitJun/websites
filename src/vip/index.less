@@ -1,0 +1,66 @@
+.container {
+  padding-top: 92px;
+  height: 100vh;
+  box-sizing: border-box;
+  background: #f3f3f3;
+  overflow-y: scroll;
+}
+.main {
+  &_banner {
+    position: relative;
+    margin-bottom: 40px;
+    background: #000;
+    height: 320px;
+    &_img {
+      height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+  }
+  &_list {
+    padding: 0 30px;
+    &_item {
+      height: 220px;
+      background: #1E1C38;
+      border-radius: 20px;
+      margin-bottom: 30px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 30px;
+      &_img {
+        height: 136px;
+        margin-right: 24px;
+      }
+      &_action {
+        position: absolute;
+        right: 24px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        &_item {
+          width: 200px;
+          height: 64px;
+          border-radius: 4px;
+          background: linear-gradient(90deg, #D4B38F 0%, #B88964 100%);
+          margin-bottom: 24px;
+          color: #ffffff;
+          font-size: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        &_item:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+.my-swipe {
+  height: 80%;
+}
