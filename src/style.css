@@ -7,3 +7,34 @@
   font-family: Avenir,Helvetica,Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
 }
+@keyframes wobble {
+  0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0);
+      opacity: .8
+  }
+
+  30% {
+      -webkit-transform: rotate(-10deg);
+      transform: rotate(-10deg);
+      opacity: .9
+  }
+
+  50% {
+      -webkit-transform: rotate(10deg);
+      transform: rotate(10deg);
+      opacity: 1
+  }
+
+  85% {
+      -webkit-transform: rotate(15deg);
+      transform: rotate(15deg);
+      opacity: .9
+  }
+
+  to {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0);
+      opacity: 1
+  }
+}

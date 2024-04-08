@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <TopBar 
-      title="首页"      
+      title="首页"
     />
     <div class="banner">
       <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
@@ -25,6 +25,17 @@
           :src="noticeIcon"
         />
       </div>
+      
+      <div class="notice_bar">
+        
+        <!-- <van-notice-bar
+          background="#ffffff"
+          color="#000000"
+          text="无论我们能活多久，我们能够享受的只有无法分割的此刻，此外别无其他。"
+        /> -->
+        <div class="notice_bar_info">无论我们能活多久，我们能够享受的只有无法分割的此刻，此外别无其他。</div>
+      </div>
+      <div class="notice_more">更多></div>
     </div>
     <h1 class="title">交易大厅</h1>
     <div class="vipList">

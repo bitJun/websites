@@ -22,6 +22,7 @@
   background: #ffffff;
   display: flex;
   align-items: center;
+  overflow: hidden;
   &_icon {
     display: flex;
     align-items: center;
@@ -30,8 +31,26 @@
       height: 40px;
     }
   }
-  &_bar {}
-  &_more {}
+  &_bar {
+    height: 40px;
+    color: #000000;
+    background: #ffffff;
+    flex: 1;
+    &_info {
+      font-size: 28px;
+      font-family: PingFang SC, PingFang SC;
+      font-weight: 400;
+      color: #FF7D00;
+      line-height: 40px;
+      animation: textRoll linear 10s infinite;
+      white-space: nowrap;
+    }
+  }
+  &_more {
+    padding: 0 8px;
+    color: #b8b8b8;
+    font-size: 24px;
+  }
 }
 .title {
   padding: 10px 30px 0;
@@ -50,5 +69,15 @@
       height: 340px;
       object-fit: contain;
     }
+  }
+}
+
+@keyframes textRoll {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
   }
 }

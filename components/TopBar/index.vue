@@ -1,6 +1,12 @@
 <template>
-  <div class="topBar">
+  <div class="topBar" :class="class">
+    <div class="topBar_back">
+      <i class="iconfont icon-zuojiantou"></i>
+    </div>
     {{title}}
+    <div class="topBar_action">
+      <i class="iconfont icon-duoyuyan"></i>
+    </div>
   </div>
 </template>
 <script setup>
@@ -13,7 +19,15 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+  showAction: {
+    type: Boolean,
+    default: false
+  },
   title: {
+    type: String,
+    default: ''
+  },
+  class: {
     type: String,
     default: ''
   }
