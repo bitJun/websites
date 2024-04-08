@@ -1,10 +1,18 @@
 <template>
   <div class="topBar" :class="class">
-    <div class="topBar_back">
+    <div
+      class="topBar_back"
+      @click="onBack()"
+      v-if="showBack"
+    >
       <i class="iconfont icon-zuojiantou"></i>
     </div>
     {{title}}
-    <div class="topBar_action">
+    <div
+      class="topBar_action"
+      @click="onChangeLanguage()"
+      v-if="showAction"
+    >
       <i class="iconfont icon-duoyuyan"></i>
     </div>
   </div>
@@ -35,6 +43,10 @@ const props = defineProps({
 
 const onBack = () => {
   router.go(-1);
+}
+
+const onChangeLanguage = () => {
+  router.push('/language')
 }
 </script>
 <style lang="less" scoped>
