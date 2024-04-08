@@ -35,7 +35,7 @@
         /> -->
         <div class="notice_bar_info">无论我们能活多久，我们能够享受的只有无法分割的此刻，此外别无其他。</div>
       </div>
-      <div class="notice_more">更多></div>
+      <div class="notice_more" @click="notice()">更多></div>
     </div>
     <h1 class="title">交易大厅</h1>
     <div class="vipList">
@@ -94,6 +94,9 @@ const showDetail = (id) => {
   router.push(`/vip/${id}`)
 }
 
+const notice = () => {
+  router.push(`/notice`)
+}
 
 </script>
 <style lang="less" scoped>

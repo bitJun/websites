@@ -5,3 +5,139 @@
   background: #f3f3f3;
   overflow-y: scroll;
 }
+.header {
+  height: 320px;
+  padding: 0px 30px;
+  background: #1C1C34;
+  border-radius: 0 0 15% 15%;
+  z-index: 20;
+  width: 100%;
+  top: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  &_logo {
+    margin-right: 16px;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: contain;
+  }
+  &_info {
+    flex: 1;
+    position: relative;
+    &_name {
+      padding-right: 20px;
+      width: 100%;
+      line-height: 48px;
+      font-size: 36px;
+      color: #ffffff;
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+    }
+    &_id {
+      display: flex;
+      align-items: center;
+      max-width: 280px;
+      margin-top: 10px;
+      color: #ffffff;
+      font-size: 28px;
+      line-height: 36px;
+    }
+    &_copy {
+      width: 28px;
+      margin-left: 8px;
+    }
+    &_arrow {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      .iconfont {
+        color: #ffffff;
+        font-size: 36px;
+      }
+    }
+  }
+}
+.box {
+  overflow: auto;
+  padding: 0 20px;
+  top: 260px;
+  z-index: 200;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  &_card {
+    background: #ffffff;
+    padding: 30px 20px;
+    border-radius: 12px;
+    &_section {
+      height: 100px;
+      &_value {
+        line-height: 4.8vw;
+        color: #000000;
+        position: relative;
+        font-size: 32px;
+      }
+      &_tip {
+        padding-top: 10px;
+        color: #000000;
+        text-align: center;
+        font-size: 28px;
+      }
+    }
+  }
+  &_control {
+    border-radius: 12px;
+    margin-top: 20px;
+    background: #ffffff;
+    &_item {
+      padding: 22px 18px;
+      position: relative;
+      border-bottom: 0.8px solid #F3F3F3;
+      display: flex;
+      align-items: center;
+      position: relative;
+      color: #000000;
+      font-size: 28px;
+      &_img {
+        width: 44px;
+        margin-right: 12px;
+      }
+      &_arrow {
+        position: absolute;
+        right: 18px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 28px;
+        color: #000000;
+        .iconfont {
+          font-size: 36px;
+          color: #bbb;
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+  &_logOut {
+    margin-top: 20px;
+    padding: 20px;
+    width: 100%;
+    &_action {
+      background: #FF2742;
+      width: 100%;
+      height: 80px;
+      color: #ffffff;
+      font-size: 28px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
