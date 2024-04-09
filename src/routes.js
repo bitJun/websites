@@ -100,6 +100,13 @@ const routes = [
     },
   },
   {
+    path: "/rechargehistory/:id",
+    component: () => import("./rechargehistory/detail.vue"),
+    meta: {
+      name: "RechargeHistoryInfo",
+    },
+  },
+  {
     path: "/safe",
     component: () => import("./safe/index.vue"),
     meta: {
@@ -125,6 +132,13 @@ const routes = [
     component: () => import("./withdrawhistory/index.vue"),
     meta: {
       name: "WithdrawHistory",
+    },
+  },
+  {
+    path: "/cashoutselect",
+    component: () => import("./cashoutselect/index.vue"),
+    meta: {
+      name: "cashoutselect",
     },
   },
 ];

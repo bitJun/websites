@@ -1,0 +1,35 @@
+.container {
+  padding-top: 92px;
+  height: 100vh;
+  box-sizing: border-box;
+  background: #ffffff;
+  overflow-y: scroll;
+}
+.box {
+  padding: 30px;
+  &_control {
+    position: relative;
+    font-size: 28px;
+    color: #111;
+    padding: 30px 0;
+    border-bottom: 1px solid #e2e2e2;
+    &_action {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);   
+      display: flex;
+      align-items: center;
+      font-size: 28px;
+      color: #e7464d;
+      &_img {
+        width: 36px;
+        margin-right: 10px;
+      }
+      &_arrow {
+        margin-left: 20px;
+        width: 20px;
+      }
+    }
+  }
+}

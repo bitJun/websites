@@ -12,6 +12,9 @@
           <img
             :src="copy"
             class="header_info_copy"
+            v-clipboard:copy="userId"
+            v-clipboard:success="onCopy"
+            v-clipboard:error="onError"
           />
         </div>
         <div class="header_info_arrow">
@@ -37,7 +40,7 @@
             <i class="iconfont icon-you"></i>
           </div>
         </div>
-        <div class="box_control_item" @click="goUrl('withdraw')">
+        <div class="box_control_item" @click="goUrl('cashoutselect')">
           <img
             :src="withdraw"
             class="box_control_item_img"
@@ -119,12 +122,22 @@ import language from '@assets/mycenter-pop-language.png';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
+
+const userId = ref('19868342')
 const state = reactive({
 
 })
 
 const goUrl = (url) => {
   router.push(url)
+}
+
+const onCopy = (e) => {
+  console.log('success', e.text);
+}
+
+const onError = () => {
+  console.log('error');
 }
 </script>
 <style lang="less" scoped>

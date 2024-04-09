@@ -5,6 +5,10 @@ import App from './App.vue';
 import 'vant/lib/index.css';
 import 'amfe-flexible';
 import router from './routes';
+import VueClipboard from 'vue3-clipboard'
 
 const app = createApp(App);
-app.use(router).use(Vant).mount('#app');
+app.use(VueClipboard, {
+  autoSetContainer: true,
+  appendToBody: true,
+}).use(router).use(Vant).mount('#app');

@@ -19,7 +19,8 @@
     "unplugin-vue-components": "^0.26.0",
     "vant": "^4.8.10",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vue3-clipboard": "^1.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",

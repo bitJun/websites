@@ -1,0 +1,64 @@
+.container {
+  padding-top: 92px;
+  height: 100vh;
+  box-sizing: border-box;
+  background: #ffffff;
+  overflow-y: scroll;
+}
+.form {
+  padding: 30px;
+  &_title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 40px;
+  }
+  &_control {
+    padding: 0 30px;
+    margin-top: 20px;
+    width: 100%;
+    height: 92px;
+    background: #f2f4f7;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    &_box {
+      flex: 1;
+      height: 100%;
+    }
+    &_value {
+      height: 92px;
+      width: 100%;
+      background-color: transparent;
+      font-size: 28px;
+      font-weight: 400;
+      color: #333;
+      border: none;
+      outline: none;
+    }
+    &_action {
+      padding: 0 0 0 20px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      .iconfont {
+        font-size: 36px;
+        color: #7b869e;
+      }
+    }
+  }
+}
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FF2742;
+  color: #ffffff;
+  font-size: 28px;
+  height: 88px;
+  position: absolute;
+  width: 90%;
+  bottom: 40px;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 8px;
+}

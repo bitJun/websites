@@ -37,7 +37,7 @@ export default defineConfig({
           mediaQuery: true, // 是否在媒体查询的css代码中也进行转换，默认false
           replace: true, // 是否转换后直接更换属性值
           // exclude: [/node_modules/], // 设置忽略文件，用正则做目录名匹配
-          exclude: [],
+          exclude:[/node_modules\/vant/i],
           landscape: false // 是否处理横屏情况
         })
       ]
