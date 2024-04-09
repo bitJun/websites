@@ -27,13 +27,12 @@
       </div>
       
       <div class="notice_bar">
-        
-        <!-- <van-notice-bar
-          background="#ffffff"
+        <van-notice-bar
+          scrollable
+          text="米袋虽空——樱花开哉！"
           color="#000000"
-          text="无论我们能活多久，我们能够享受的只有无法分割的此刻，此外别无其他。"
-        /> -->
-        <div class="notice_bar_info">无论我们能活多久，我们能够享受的只有无法分割的此刻，此外别无其他。</div>
+          background="#ffffff"
+        />
       </div>
       <div class="notice_more" @click="notice()">更多></div>
     </div>
