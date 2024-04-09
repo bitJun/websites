@@ -27,8 +27,8 @@
           />
           {{ item.name }}
           <div class="main_list_item_action">
-            <div class="main_list_item_action_item">底注: {{item.antes}}</div>
-            <div class="main_list_item_action_item">准入: {{item.access}}</div>
+            <div class="main_list_item_action_item" @click="showClip(item.id)">底注: {{item.antes}}</div>
+            <div class="main_list_item_action_item" @click="showClip(item.id)">准入: {{item.access}}</div>
           </div>
         </div>
       </div>
@@ -38,13 +38,14 @@
 <script setup>
 import { ref, reactive, onMounted } from 'vue';
 import TopHeader from '@components/TopHeader/index.vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import banner from '@assets/banner_vip1.png';
 import lv1 from '@assets/lv1.png';
 import lv2 from '@assets/lv2.png';
 import lv3 from '@assets/lv3.png';
 
 const route = useRoute();
+const router = useRouter();
 const state = reactive({
 
 });
@@ -79,6 +80,10 @@ const list = ref([
 onMounted(()=>{
   id.value = route.params.id;
 })
+
+const showClip = (id) => {
+  router.push(`/chip/${id}`)
+}
 </script>
 <style lang="less" scoped>
 @import url('./index.less');

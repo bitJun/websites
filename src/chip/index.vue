@@ -1,55 +1,271 @@
 <template>
   <div class="container">
-    <TopBar 
-      title="客服"
-      class="whiteBg"
-    />
-    <div class="box">
-      <img
-        :src="kefuBanner"
-        class="box_img"
-      />
-      <div class="box_list">
-        <div class="box_list_item" @click="concatOnLine()">
-          <img
-            :src="kefupeople"
-            class="box_list_item_img"
-          />
-          在线客服
-          <div class="box_list_item_action">在线咨询</div>
+    <div class="header">
+      <div class="topBar">
+        <div
+          class="topBar_back"
+          @click="onBack()"
+        >
+          <i class="iconfont icon-zuojiantou"></i>
         </div>
-        <div class="box_list_item" @click="concatWhatsApp()">
-          <img
-            :src="kefupeople"
-            class="box_list_item_img"
-          />
-          WhatsApp
-          <div class="box_list_item_action">在线咨询</div>
+        VIP2普通厅
+        <div
+          class="topBar_action"
+        >
+          <div class="topBar_action_item" @click="onRefresh()">
+            <img
+              :src="refresh"
+              alt=""
+            />
+          </div>
+          <div class="topBar_action_item" @click="visableMenu()">
+            <img
+              :src="menu"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <div class="info">
+        <div class="info_base">
+          <div class="info_base_name">距离20240409221期封盘</div>
+          <div class="info_base_value">
+            <van-count-down :time="time">
+              <template #default="timeData">
+                <span class="block">{{ timeData.hours }}</span>
+                <span class="colon">:</span>
+                <span class="block">{{ timeData.minutes }}</span>
+                <span class="colon">:</span>
+                <span class="block">{{ timeData.seconds }}</span>
+              </template>
+            </van-count-down>
+          </div>
+        </div>
+        <div class="info_price">
+          <div class="info_price_name">余额</div>
+          <div class="info_price_value">99988.96</div>
+        </div>
+      </div>
+      <div class="tips" @click="show()">
+        <div class="tips_left">
+          第<span>20240409256</span>期
+        </div>
+        <div class="tips_right">
+          <span>8</span>&nbsp;+&nbsp;<span>7</span>&nbsp;+&nbsp;<span>7</span>&nbsp;=&nbsp;<span class="blue">22</span>&nbsp;(大双)
+        </div>
+        <div class="tips_list" v-if="visable">
+          <div class="tips_list_header">
+            <div class="tips_list_header_total">期数</div>
+            <div class="tips_list_header_sum">总合</div>
+            <div class="tips_list_header_result">结果</div>
+          </div>
+          <div
+            class="tips_list_main"
+            v-for="item in [1,2,3,4,5]"
+            :key="item"
+          >
+            <div class="tips_list_main_second">
+              第<span>20240409259</span>期
+            </div>
+            <div class="tips_list_main_total">
+              <span>8</span>+<span>7</span>+<span>7</span>=<span class="blue">22</span>
+            </div>
+            <div class="tips_list_main_result">
+              (大双)
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <TabBar :active="2"/>
+    <div class="list">
+      <div class="list_item">
+        <div class="list_item_time">21:52:02</div>
+        <div class="list_item_order">
+          <div class="list_item_order_img">
+            <img
+              :src="kefu"
+              alt=""
+            />
+          </div>
+          <div class="list_item_order_info">
+            <div class="list_item_order_info_username">42***s</div>
+            <div class="list_item_order_info_detail">
+              <div class="list_item_order_info_detail_name">20240409266期</div>
+              <div class="list_item_order_info_detail_type">
+                <span>交易类型</span>
+                <span>交易金额</span>
+              </div>
+              <div class="list_item_order_info_detail_price">
+                <span>26</span>
+                <span>6018金额</span>
+              </div>
+              <div class="list_item_order_info_detail_tip">共1注,9131金额</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="down_action" @click="onDown()">
+      <img
+        :src="down"
+        alt=""
+      />
+    </div>
+    <div class="footer">
+      <div class="footer_item" @click="trade()">快速交易</div>
+      <div class="footer_item">交易取消</div>
+    </div>
   </div>
+  <div class="mask" @click="onClose()" v-if="showMenu">
+    <div class="menu">
+      <div class="menu_main">
+        <div class="menu_box" @click="goUrl('/trade')">市场走势</div>
+        <div class="menu_box" @click="goUrl('/rechargehistory')">交易记录</div>
+        <div class="menu_box" @click="goUrl('/kefu')">在线客服</div>
+        <div class="menu_box">交易说明</div>
+      </div>
+    </div>
+  </div>
+  <van-popup
+    v-model:show="showBottom"
+    position="bottom"
+    class="popup_info"
+  >
+    <div class="popup_info_box">
+      <van-tabs
+        background="#f5f6f7"
+        v-model:active="active"
+      >
+        <van-tab
+          title="大小单双"
+        >
+          <div class="popup_info_box_list">
+            <div
+              class="popup_info_box_list_item"
+              v-for="item in [1,2,3,4,5,6]"
+              :key="item"
+            >
+              <div class="popup_info_box_list_item_detail">
+                <span>大</span>
+                <span>1.98</span>
+              </div>
+            </div>
+          </div>
+        </van-tab>
+        <van-tab
+          title="数字"
+        >
+          <div class="popup_info_box_list">
+            <div
+              class="popup_info_box_list_item"
+              v-for="item in [1,2,3,4,5,6]"
+              :key="item"
+            >
+              <div class="popup_info_box_list_item_detail">
+                <span>大</span>
+                <span>1.98</span>
+              </div>
+            </div>
+          </div>
+        </van-tab>
+        <van-tab
+          title="特别投掷"
+        >
+          <div class="popup_info_box_list">
+            <div
+              class="popup_info_box_list_item"
+              v-for="item in [1,2,3,4,5,6]"
+              :key="item"
+            >
+              <div class="popup_info_box_list_item_detail">
+                <span>大</span>
+                <span>1.98</span>
+              </div>
+            </div>
+          </div>
+        </van-tab>
+      </van-tabs>
+    </div>
+    <div class="popup_info_footer">
+      <div class="popup_info_footer_item">重新交易</div>
+      <div class="popup_info_footer_item">确认交易</div>
+    </div>
+  </van-popup>
+
 </template>
 <script setup>
 import { ref, reactive, onMounted } from 'vue';
-import TabBar from '@components/TabBar/index.vue';
-import TopBar from '@components/TopBar/index.vue';
 import kefuBanner from '@assets/kefuimg.png';
-import kefupeople from '@assets/kefupeople.png';
+import kefu from '@assets/kefu.jpg';
+import down from '@assets/down.png';
+import menu from '@assets/menu.png';
+import refresh from '@assets/refresh2.png';
+import { useRouter } from 'vue-router';
+
+const time = ref(3000000)
+const router = useRouter();
+
+const showBottom = ref(false);
+const visable = ref(false);
+const showMenu = ref(false);
+const active = ref(0);
+
+const goUrl = (url) => {
+  showMenu.value = false;
+  router.push(url);
+}
+
+const onBack = () => {
+  router.go(-1);
+}
 
 const state = reactive({
 
 })
 
-const concatOnLine = () => {
-  window.location.href = 'https://www.meelinechat.com/service.html?entId=54720&clientId=19868342&metadata=%7B%22name%22%3A%22%5Cu7528%5Cu6237id%3A19868342%22%2C%220%22%3A256%7D';
+const show = () => {
+  visable.value = !visable.value;
 }
 
-const concatWhatsApp = () => {
-  window.location.href = 'https://api.whatsapp.com/send/?phone=%2B85252011242&text&type=phone_number&app_absent=0';
+const visableMenu = () => {
+  showMenu.value = true;
 }
+
+const trade = () => {
+  showBottom.value = true;
+}
+
+const onClose = () => {
+  showMenu.value = false;
+}
+
+const onRefresh = () => {
+  window.location.reload();
+}
+
+const onDown = () => {
+  window.scrollTo(0, document.body.scrollHeight);
+}
+
 </script>
+<style>
+.van-tabs {
+  height: 70px;
+  line-height: 70px;
+  font-size: 32px;
+  font-weight: 600;
+  color: #333;
+}
+.van-tab--active {
+  color: #333;
+}
+.van-tabs__line {
+  height: 8px;
+  background: #333;
+  border-radius: 4px;
+  width: 33.33%;
+}
+</style>
 <style lang="less" scoped>
 @import url('./index.less');
 </style>

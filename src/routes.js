@@ -148,6 +148,13 @@ const routes = [
       name: "chip",
     },
   },
+  {
+    path: "/trade",
+    component: () => import("./trade/index.vue"),
+    meta: {
+      name: "trade",
+    },
+  },
 ];
 
 const router = createRouter({
