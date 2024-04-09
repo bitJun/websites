@@ -141,6 +141,13 @@ const routes = [
       name: "cashoutselect",
     },
   },
+  {
+    path: "/chip/:id",
+    component: () => import("./chip/index.vue"),
+    meta: {
+      name: "chip",
+    },
+  },
 ];
 
 const router = createRouter({
