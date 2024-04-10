@@ -319,7 +319,7 @@
         flex: 1;
         padding-right: 72px;
         &_username {
-          font-size: 4.533333vw;
+          font-size: 34px;
           color: #333;
           line-height: 8.533333vw;
         }
@@ -358,6 +358,35 @@
             line-height: 1.8;
           }
         }
+      }
+    }
+  }
+  &_box {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &_main {
+      background: #c9c8cd;
+      max-width: 80%;
+      padding: 10px 22px;
+      font-size: 26px;
+      border-radius: 16px;
+      &_title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        color: #FF277F;
+        line-height: 1.8;
+      }
+      &_content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #4479c7;
+        font-size: 26px;
+        line-height: 1.8
       }
     }
   }
@@ -475,4 +504,45 @@
   transform: rotate(45deg);
   border-radius: 6px;
   background: #f7f7f7;
+  background: #f1f1f1;
+  z-index: 2002;
+}
+.trade_info {
+  height: 620px;
+  &_header {
+    padding: 22px 26px;
+    display: flex;
+    align-items: center;
+    &_value {
+      flex: 1;
+      border-radius: 10px;
+      border: .5px solid rgba(0, 0, 0, .1);
+      padding: 10px 22px;
+      font-size: 34px;
+      overflow: hidden;
+    }
+    &_action {
+      flex: 1;
+      display: flex;
+      &_item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 132px;
+        height: 76px;
+        border-radius: 40px;
+        line-height: 76px;
+        text-align: center;
+        font-size: 30px;
+        color: #fff;
+      }
+      &_item:first-child {
+        margin: 0 22px;
+        background: linear-gradient(90deg, #D4B38F 0%, #B88964 100%);
+      }
+      &_item:last-child {
+        background: #1E1C38;
+      }
+    }
+  }
 }

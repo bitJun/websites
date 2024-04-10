@@ -135,6 +135,13 @@ const routes = [
     },
   },
   {
+    path: "/withdrawhistory/:id",
+    component: () => import("./withdrawhistory/detail.vue"),
+    meta: {
+      name: "WithdrawHistoryInfo",
+    },
+  },
+  {
     path: "/cashoutselect",
     component: () => import("./cashoutselect/index.vue"),
     meta: {
@@ -153,6 +160,34 @@ const routes = [
     component: () => import("./trade/index.vue"),
     meta: {
       name: "trade",
+    },
+  },
+  {
+    path: "/bank",
+    component: () => import("./bank/index.vue"),
+    meta: {
+      name: "bank",
+    },
+  },
+  {
+    path: "/bank/:id",
+    component: () => import("./bank/info.vue"),
+    meta: {
+      name: "bankInfo",
+    },
+  },
+  {
+    path: "/bank/add",
+    component: () => import("./bank/add.vue"),
+    meta: {
+      name: "bankAdd",
+    },
+  },
+  {
+    path: "/rule",
+    component: () => import("./rule/index.vue"),
+    meta: {
+      name: "rule",
     },
   },
 ];

@@ -24,6 +24,7 @@
             class="box"
             v-for="json in list"
             :key="json.id"
+            @click="showDetail(json.id)"
           >
             <div class="box_title">
               {{json.name}}
@@ -59,7 +60,9 @@
 import { ref, reactive, onMounted } from 'vue';
 import TopBar from '@components/TopBar/index.vue';
 import userIcon from '@assets/user_icon_enter.png';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 
 const tabList = ref([
   {
@@ -123,6 +126,10 @@ const loading = ref(false);
 const finished = ref(true);
 
 const onLoad = () => {}
+
+const showDetail = (id) => {
+  router.push(`/rechargehistory/${id}`);
+}
 </script>
 <style>
 .van-tabs {

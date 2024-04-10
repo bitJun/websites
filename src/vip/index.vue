@@ -3,6 +3,7 @@
     <TopHeader
       :title="name"
       class="whiteBg"
+      @showRule="showRuleInfo()"
     />
     <div class="main">
       <div class="main_banner">
@@ -83,6 +84,10 @@ onMounted(()=>{
 
 const showClip = (id) => {
   router.push(`/chip/${id}`)
+}
+
+const showRuleInfo = () => {
+  router.push(`/rule?id=${1}`)
 }
 </script>
 <style lang="less" scoped>

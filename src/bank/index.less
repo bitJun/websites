@@ -1,0 +1,104 @@
+.container {
+  padding-top: 92px;
+  height: 100vh;
+  box-sizing: border-box;
+  background: #f3f3f3;
+  overflow-y: scroll;
+}
+.box{
+  margin: 16px 20px;
+  background: #f8f8f8;
+  border-radius: 20px;
+  padding: 30px;
+}
+.form {
+  &_control {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px 32px;
+    overflow: hidden;
+    color: #333333;
+    font-size: 28px;
+    line-height: 48px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &_label {
+      flex: 1;
+    }
+    &_action {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    &_input {
+      flex: 1;
+    }
+    &_all {
+      position: absolute;
+      font-size: 3.733333vw;
+      color: #0685e6;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 4vw;
+    }
+  }
+  &_title {
+    margin-top: 50px;
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  &_tip {
+    color: #a09e9e;
+    font-size: 28px;
+    padding-left: 30px;
+    margin-top: 30px;
+    padding-bottom: 40px;
+    span {
+      padding-left: 10px;
+    }
+  }
+}
+.content {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.action {
+  background-color: #FF277F;
+  height: 80px;
+  width: 100%;
+  border-radius: 12px;
+  margin: 40px auto;
+  color: #ffffff;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pwd_info {
+  width: 90%;
+  border-radius: 20px;
+  &_title {
+    padding: 60px 0;
+    color: #000;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+  }
+  .van-number-keyboard {
+    position: relative;
+  }
+  .iconfont {
+    position: absolute;
+    font-size: 40px;
+    z-index: 99;
+    right: 30px;
+    top: 30px;
+  }
+}

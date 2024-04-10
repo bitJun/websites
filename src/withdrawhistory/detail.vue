@@ -8,21 +8,46 @@
     <div class="box">
       <h3 class="title">详情</h3>
       <div class="control">
-        入款方式
-        <div class="conrtol_info">客服充值</div>
+        取款方式
+        <div class="control_info">客服充值</div>
       </div>
       <div class="control">
         状态
-        <div class="conrtol_info" :class="statusColor[status]">{{statusText[status]}}</div>
+        <div class="control_info" :class="statusColor[status]">{{statusText[status]}}</div>
       </div>
       <div class="control">
-        存款数量
-        <div class="conrtol_info">100000 HKD</div>
+        提现银行
+        <div class="control_info col">
+          <div class="flex">
+            <img
+              :src="bankIcon"
+              class="bankIcon"
+            />
+            123
+          </div>
+          <div class="flex">123</div>
+        </div>
       </div>
       <div class="control">
-        订单的好
+        提取人姓名
+        <div class="control_info">123D</div>
+      </div>
+      <div class="control">
+        提取数量
+        <div class="control_info">100000 HKD</div>
+      </div>
+      <div class="control">
+        到账金额
+        <div class="control_info">100000 HKD</div>
+      </div>
+      <div class="control">
+        手续费
+        <div class="control_info">100000 HKD</div>
+      </div>
+      <div class="control">
+        订单号
         <div 
-          class="conrtol_info"
+          class="control_info"
           v-clipboard:copy="orderNo"
           v-clipboard:success="onCopy"
           v-clipboard:error="onError"
@@ -36,7 +61,7 @@
       </div>
       <div class="control">
         时间
-        <div class="conrtol_info">2023-11-27 12:37:21</div>
+        <div class="control_info">2023-11-27 12:37:21</div>
       </div>
     </div>
   </div>
@@ -45,6 +70,8 @@
 import { ref, reactive, onMounted } from 'vue';
 import TopBar from '@components/TopBar/index.vue';
 import copyIcon from '@assets/public_copy_blue.png';
+import bankIcon from '@assets/assets_bank_yellow.png';
+
 
 const state = reactive({
 

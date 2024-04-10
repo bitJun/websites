@@ -50,7 +50,7 @@
             <i class="iconfont icon-you"></i>
           </div>
         </div>
-        <div class="box_control_item" @click="goUrl('recharge')">
+        <div class="box_control_item" @click="goUrl('mybill')">
           <img
             :src="Trade"
             class="box_control_item_img"

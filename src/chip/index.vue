@@ -77,8 +77,17 @@
         </div>
       </div>
     </div>
-    <div class="list">
-      <div class="list_item">
+    <van-list
+      v-model:loading="loading"
+      :finished="finished"
+      finished-text="没有更多了"
+      @load="onLoad"
+    >
+      <div
+        class="list_item"
+        v-for="item in list"
+        :key="item"
+      >
         <div class="list_item_time">21:52:02</div>
         <div class="list_item_order">
           <div class="list_item_order_img">
@@ -104,7 +113,15 @@
           </div>
         </div>
       </div>
-    </div>
+      <div class="list_box">
+        <div class="list_box_main">
+          <div class="list_box_main_title"> 【NO.20240410219】 </div>
+          <div class="list_box_main_content">
+            <span>单笔交易2.00起，总交易金额999999封顶</span>
+          </div><!---->
+        </div>
+      </div>
+    </van-list>
     <div class="down_action" @click="onDown()">
       <img
         :src="down"
@@ -120,7 +137,7 @@
     <div class="menu">
       <div class="menu_main">
         <div class="menu_box" @click="goUrl('/trade')">市场走势</div>
-        <div class="menu_box" @click="goUrl('/rechargehistory')">交易记录</div>
+        <div class="menu_box" @click="goUrl('/mybill')">交易记录</div>
         <div class="menu_box" @click="goUrl('/kefu')">在线客服</div>
         <div class="menu_box">交易说明</div>
       </div>
@@ -144,6 +161,7 @@
               class="popup_info_box_list_item"
               v-for="item in [1,2,3,4,5,6]"
               :key="item"
+              @click="quickTrade()"
             >
               <div class="popup_info_box_list_item_detail">
                 <span>大</span>
@@ -160,6 +178,7 @@
               class="popup_info_box_list_item"
               v-for="item in [1,2,3,4,5,6]"
               :key="item"
+              @click="quickTrade()"
             >
               <div class="popup_info_box_list_item_detail">
                 <span>大</span>
@@ -176,6 +195,7 @@
               class="popup_info_box_list_item"
               v-for="item in [1,2,3,4,5,6]"
               :key="item"
+              @click="quickTrade()"
             >
               <div class="popup_info_box_list_item_detail">
                 <span>大</span>
@@ -191,7 +211,25 @@
       <div class="popup_info_footer_item">确认交易</div>
     </div>
   </van-popup>
-
+  <van-popup
+    v-model:show="showTrade"
+    position="bottom"
+    class="trade_info"
+  >
+    <div class="trade_info_header">
+      <div class="trade_info_header_value">{{price || '请输入交易金额'}}</div>
+      <div class="trade_info_header_action">
+        <div class="trade_info_header_action_item" @click="onSure()">确定</div>
+        <div class="trade_info_header_action_item" @click="onClose()">取消</div>
+      </div>
+      <van-number-keyboard
+        :show="true"
+        @input="onInput"
+        @delete="onDelete"
+        extra-key="."
+      />
+    </div>
+  </van-popup>
 </template>
 <script setup>
 import { ref, reactive, onMounted } from 'vue';
@@ -204,11 +242,17 @@ import { useRouter } from 'vue-router';
 
 const time = ref(3000000)
 const router = useRouter();
-
+const list = ref([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]);
 const showBottom = ref(false);
+const showTrade = ref(false);
 const visable = ref(false);
 const showMenu = ref(false);
 const active = ref(0);
+const loading = ref(false);
+const finished = ref(false);
+const price = ref('');
+
+const onLoad = () => {}
 
 const goUrl = (url) => {
   showMenu.value = false;
@@ -237,6 +281,7 @@ const trade = () => {
 
 const onClose = () => {
   showMenu.value = false;
+  showTrade.value = false;
 }
 
 const onRefresh = () => {
@@ -244,7 +289,25 @@ const onRefresh = () => {
 }
 
 const onDown = () => {
+  console.log(12)
   window.scrollTo(0, document.body.scrollHeight);
+}
+
+const quickTrade = () => {
+  showTrade.value = true;
+}
+
+const onSure = () => {
+  showTrade.value = false;
+}
+
+const onInput = (value) => {
+  console.log('value', value)
+  price.value = `${price.value}${value}`
+}
+
+const onDelete = () => {
+  price.value = price.value.slice(0, -1);
 }
 
 </script>

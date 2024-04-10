@@ -9,14 +9,16 @@
     {{title}}
     <div
       class="topBar_action"
+      @click="onRule()"
     >
       邀请玩法
     </div>
   </div>
 </template>
 <script setup>
-import { reactive, defineProps } from 'vue';
+import { reactive, defineProps, defineEmits } from 'vue';
 import { useRouter } from 'vue-router';
+const emit = defineEmits(['showRule']);
 
 const router = useRouter();
 const props = defineProps({
@@ -40,6 +42,10 @@ const props = defineProps({
 
 const onBack = () => {
   router.go(-1);
+}
+
+const onRule = () => {
+  emit('showRule');
 }
 
 const onChangeLanguage = () => {

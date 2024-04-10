@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="box">
-      <div class="box_control">
+      <div class="box_control" @click="goUrl('/bank')">
         <img
           :src="bank"
           class="box_control_img"
