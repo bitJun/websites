@@ -82,6 +82,7 @@
       :finished="finished"
       finished-text="没有更多了"
       @load="onLoad"
+      ref="listRef"
     >
       <div
         class="list_item"
@@ -247,7 +248,7 @@
   </van-popup>
 </template>
 <script setup>
-import { ref, reactive, onMounted } from 'vue';
+import { ref, reactive, getCurrentInstance, onMounted } from 'vue';
 import kefuBanner from '@assets/kefuimg.png';
 import kefu from '@assets/kefu.jpg';
 import down from '@assets/down.png';
@@ -309,10 +310,17 @@ const onClose = () => {
 const onRefresh = () => {
   window.location.reload();
 }
+const dom = ref();
 
+onMounted(() => {
+  console.log(11, getCurrentInstance().ctx.$refs)
+  dom.value = getCurrentInstance().ctx.$refs;
+})
+// let listRef = ref()
 const onDown = () => {
-  console.log(12)
-  window.scrollTo(0, document.body.scrollHeight);
+  console.log(dom.value.listRef)
+  // dom.value.listRef.scrollToItem(list.value.length - 1); 
+  // window.scrollTo(0, document.body.scrollHeight);
 }
 
 const quickTrade = () => {
