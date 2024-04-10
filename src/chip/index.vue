@@ -139,7 +139,7 @@
         <div class="menu_box" @click="goUrl('/trade')">市场走势</div>
         <div class="menu_box" @click="goUrl('/mybill')">交易记录</div>
         <div class="menu_box" @click="goUrl('/kefu')">在线客服</div>
-        <div class="menu_box">交易说明</div>
+        <div class="menu_box" @click="showRule()">交易说明</div>
       </div>
     </div>
   </div>
@@ -230,6 +230,21 @@
       />
     </div>
   </van-popup>
+  <van-popup
+    v-model:show="visable1"
+    class="rule_info"
+  >
+    <div class="rule_info_title">说明</div>
+    <div class="rule_info_content">
+      <p>1.大小单双赔率1.98倍<br></p>
+      <p>2.组合(小单|小双|大单|大双)组合3.8倍</p>
+      <p>3.极大极小11倍</p>
+      <p>4.对子3倍</p>
+      <p>5.顺子9倍</p>
+      <p>6.豹子30倍</p>
+    </div>
+    <div class="rule_info_action" @click="onClose()">确认</div>
+  </van-popup>
 </template>
 <script setup>
 import { ref, reactive, onMounted } from 'vue';
@@ -247,6 +262,7 @@ const showBottom = ref(false);
 const showTrade = ref(false);
 const visable = ref(false);
 const showMenu = ref(false);
+const visable1 = ref(false);
 const active = ref(0);
 const loading = ref(false);
 const finished = ref(false);
@@ -275,6 +291,11 @@ const visableMenu = () => {
   showMenu.value = true;
 }
 
+const showRule = () => {
+  visable1.value = true;
+}
+
+
 const trade = () => {
   showBottom.value = true;
 }
@@ -282,6 +303,7 @@ const trade = () => {
 const onClose = () => {
   showMenu.value = false;
   showTrade.value = false;
+  visable1.value = false;
 }
 
 const onRefresh = () => {
