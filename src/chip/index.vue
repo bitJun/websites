@@ -217,7 +217,7 @@
       <div class="trade_info_header_value">{{price || '请输入交易金额'}}</div>
       <div class="trade_info_header_action">
         <div class="trade_info_header_action_item" @click="onSure()">确定</div>
-        <div class="trade_info_header_action_item" @click="onCloseVisable()">取消</div>
+        <div class="trade_info_header_action_item" @click="onCloseTrade()">取消</div>
       </div>
       <van-number-keyboard
         :show="true"
@@ -240,7 +240,7 @@
       <p>5.顺子9倍</p>
       <p>6.豹子30倍</p>
     </div>
-    <div class="rule_info_action" @click="onClose()">确认</div>
+    <div class="rule_info_action" @click="onCloseVisable()">确认</div>
   </van-popup>
 </template>
 <script setup>
@@ -299,6 +299,9 @@ const trade = () => {
 
 const onClose = () => {
   showMenu.value = false;
+}
+
+const onCloseTrade = () => {
   showTrade.value = false;
 }
 
