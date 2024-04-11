@@ -56,3 +56,50 @@
   font-size: 28px;
   padding-top: 20px;
 }
+.wrapper {
+  overflow-x: hidden;
+  .animation {
+    display: flex;
+    width: 200%;
+    & > div {
+      width: 50%;
+    }
+    .slide-left-enter-active,
+    .slide-left-leave-active,
+    .slide-right-enter-active,
+    .slide-right-leave-active {
+      transition: transform 0.3s;
+    }
+    .slide-right-enter-from {
+      transform: translateX(0);
+    }
+    .slide-right-enter-to {
+      transform: translateX(-100%);
+    }
+    .slide-right-leave-from {
+      transform: translateX(0);
+    }
+    .slide-right-leave-to {
+      transform: translateX(-100%);
+    }
+    .slide-left-enter-from {
+      transform: translateX(-200%);
+    }
+    .slide-left-enter-to {
+      transform: translateX(-100%);
+    }
+    .slide-left-leave-from {
+      transform: translateX(0);
+    }
+    .slide-left-leave-to {
+      transform: translateX(100%);
+    }
+  }
+}
+.van-overlay,
+.van-popup {
+  width: 100% !important;
+}
+.van-popup--center {
+  width: fit-content !important;
+}

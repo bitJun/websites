@@ -221,7 +221,7 @@
       <div class="trade_info_header_value">{{price || '请输入交易金额'}}</div>
       <div class="trade_info_header_action">
         <div class="trade_info_header_action_item" @click="onSure()">确定</div>
-        <div class="trade_info_header_action_item" @click="onClose()">取消</div>
+        <div class="trade_info_header_action_item" @click="onCloseVisable()">取消</div>
       </div>
       <van-number-keyboard
         :show="true"
@@ -304,6 +304,9 @@ const trade = () => {
 const onClose = () => {
   showMenu.value = false;
   showTrade.value = false;
+}
+
+const onCloseVisable = () => {
   visable1.value = false;
 }
 

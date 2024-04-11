@@ -1,11 +1,26 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
-const routes = [
+const isMobile = () => {
+  let flag = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  return flag;
+}
+const routesPc = [
+  {
+    path: "/",
+    component: () => import("./pc/index.vue"),
+    meta: {
+      name: "Index",
+      index: 1
+    },
+  },
+]
+const routesMobile = [
   {
     path: "/",
     component: () => import("./index/index.vue"),
     meta: {
       name: "Index",
+      index: 1
     },
   },
   {
@@ -13,6 +28,7 @@ const routes = [
     component: () => import("./login/index.vue"),
     meta: {
       name: "Login",
+      index: 2
     },
   },
   {
@@ -20,6 +36,7 @@ const routes = [
     component: () => import("./register/index.vue"),
     meta: {
       name: "Register",
+      index: 2
     },
   },
   {
@@ -27,6 +44,7 @@ const routes = [
     component: () => import("./changebuspwd/index.vue"),
     meta: {
       name: "Changebuspwd",
+      index: 3
     },
   },
   {
@@ -34,6 +52,7 @@ const routes = [
     component: () => import("./changepwd/index.vue"),
     meta: {
       name: "Changepwd",
+      index: 3
     },
   },
   {
@@ -48,6 +67,7 @@ const routes = [
     component: () => import("./language/index.vue"),
     meta: {
       name: "Language",
+      index: 2
     },
   },
   {
@@ -55,6 +75,7 @@ const routes = [
     component: () => import("./mine/index.vue"),
     meta: {
       name: "Mine",
+      index: 1
     },
   },
   {
@@ -62,6 +83,7 @@ const routes = [
     component: () => import("./mybill/index.vue"),
     meta: {
       name: "Mybill",
+      index: 2
     },
   },
   {
@@ -69,6 +91,7 @@ const routes = [
     component: () => import("./mybill/detail.vue"),
     meta: {
       name: "MybillInfo",
+      index: 3
     },
   },
   {
@@ -76,6 +99,7 @@ const routes = [
     component: () => import("./notice/index.vue"),
     meta: {
       name: "Notice",
+      index: 2
     },
   },
   {
@@ -83,6 +107,7 @@ const routes = [
     component: () => import("./notice/detail.vue"),
     meta: {
       name: "NoticeInfo",
+      index: 3
     },
   },
   {
@@ -90,6 +115,7 @@ const routes = [
     component: () => import("./recharge/index.vue"),
     meta: {
       name: "Recharge",
+      index: 1
     },
   },
   {
@@ -97,6 +123,7 @@ const routes = [
     component: () => import("./rechargehistory/index.vue"),
     meta: {
       name: "RechargeHistory",
+      index: 2
     },
   },
   {
@@ -104,6 +131,7 @@ const routes = [
     component: () => import("./rechargehistory/detail.vue"),
     meta: {
       name: "RechargeHistoryInfo",
+      index: 3
     },
   },
   {
@@ -111,6 +139,7 @@ const routes = [
     component: () => import("./safe/index.vue"),
     meta: {
       name: "Safe",
+      index: 2
     },
   },
   {
@@ -118,6 +147,7 @@ const routes = [
     component: () => import("./vip/index.vue"),
     meta: {
       name: "Vip",
+      index: 2
     },
   },
   {
@@ -125,6 +155,7 @@ const routes = [
     component: () => import("./withdraw/index.vue"),
     meta: {
       name: "Withdraw",
+      index: 2
     },
   },
   {
@@ -132,6 +163,7 @@ const routes = [
     component: () => import("./withdrawhistory/index.vue"),
     meta: {
       name: "WithdrawHistory",
+      index: 3
     },
   },
   {
@@ -139,6 +171,7 @@ const routes = [
     component: () => import("./withdrawhistory/detail.vue"),
     meta: {
       name: "WithdrawHistoryInfo",
+      index: 4
     },
   },
   {
@@ -146,6 +179,7 @@ const routes = [
     component: () => import("./cashoutselect/index.vue"),
     meta: {
       name: "cashoutselect",
+      index: 2
     },
   },
   {
@@ -153,6 +187,7 @@ const routes = [
     component: () => import("./chip/index.vue"),
     meta: {
       name: "chip",
+      index: 4
     },
   },
   {
@@ -160,6 +195,7 @@ const routes = [
     component: () => import("./trade/index.vue"),
     meta: {
       name: "trade",
+      index: 5
     },
   },
   {
@@ -167,6 +203,7 @@ const routes = [
     component: () => import("./bank/index.vue"),
     meta: {
       name: "bank",
+      index: 3
     },
   },
   {
@@ -174,6 +211,7 @@ const routes = [
     component: () => import("./bank/info.vue"),
     meta: {
       name: "bankInfo",
+      index: 4
     },
   },
   {
@@ -181,6 +219,7 @@ const routes = [
     component: () => import("./bank/add.vue"),
     meta: {
       name: "bankAdd",
+      index: 5
     },
   },
   {
@@ -188,13 +227,14 @@ const routes = [
     component: () => import("./rule/index.vue"),
     meta: {
       name: "rule",
+      index: 3
     },
   },
 ];
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes,
+  routes: isMobile() ? routesMobile : routesPc,
 });
 
 router.beforeEach((to, _, next) => {

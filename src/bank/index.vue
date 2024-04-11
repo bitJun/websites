@@ -54,7 +54,7 @@
   </van-popup>
 </template>
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import TopBar from '@components/TopBar/index.vue';
 import bank from '@assets/bank.png';
 import userIcon from '@assets/user_icon_enter.png';
@@ -84,6 +84,15 @@ const submit = () => {
 const onClose = () => {
   show.value = false;
 }
+watch(
+  () => pwd,
+  () => {
+    if (pwd.value.length == 6) {
+      alert('此处校验支付密码')
+    }
+  },
+  { deep: true, immediate: true }
+)
 
 </script>
 <style>

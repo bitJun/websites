@@ -102,7 +102,7 @@
           </div>
         </div>
       </div>
-      <div class="box_logOut">
+      <div class="box_logOut" @click="logOut()">
         <div class="box_logOut_action">退出登录</div>
       </div>
     </div>
@@ -119,6 +119,7 @@ import withdraw from '@assets/withdraw.png';
 import Trade from '@assets/Trade.png';
 import safe from '@assets/mycenter-pop-safe.png';
 import language from '@assets/mycenter-pop-language.png';
+import { showConfirmDialog } from 'vant';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
@@ -139,7 +140,27 @@ const onCopy = (e) => {
 const onError = () => {
   console.log('error');
 }
+
+const logOut = () => {
+  showConfirmDialog({
+    title: '',
+    message:'确定退出登录?',
+    confirmButtonColor: '#FF2742'
+  })
+    .then(() => {
+      // on confirm
+    })
+    .catch(() => {
+      // on cancel
+    });
+}
 </script>
+<style>
+
+.van-dialog {
+  width: 640px !important;
+}
+</style>
 <style lang="less" scoped>
 @import url('./index.less');
 </style>
