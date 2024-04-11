@@ -77,17 +77,13 @@
         </div>
       </div>
     </div>
-    <van-list
-      v-model:loading="loading"
-      :finished="finished"
-      finished-text="没有更多了"
-      @load="onLoad"
-      ref="listRef"
-    >
+    <div class="list">
       <div
         class="list_item"
         v-for="item in list"
         :key="item"
+        :id="item"
+        ref="listRef"
       >
         <div class="list_item_time">21:52:02</div>
         <div class="list_item_order">
@@ -114,15 +110,15 @@
           </div>
         </div>
       </div>
-      <div class="list_box">
-        <div class="list_box_main">
-          <div class="list_box_main_title"> 【NO.20240410219】 </div>
-          <div class="list_box_main_content">
-            <span>单笔交易2.00起，总交易金额999999封顶</span>
-          </div><!---->
-        </div>
+    </div>
+    <div class="list_box">
+      <div class="list_box_main">
+        <div class="list_box_main_title"> 【NO.20240410219】 </div>
+        <div class="list_box_main_content">
+          <span>单笔交易2.00起，总交易金额999999封顶</span>
+        </div><!---->
       </div>
-    </van-list>
+    </div>
     <div class="down_action" @click="onDown()">
       <img
         :src="down"
@@ -313,17 +309,10 @@ const onCloseVisable = () => {
 const onRefresh = () => {
   window.location.reload();
 }
-const dom = ref();
 
-onMounted(() => {
-  console.log(11, getCurrentInstance().ctx.$refs)
-  dom.value = getCurrentInstance().ctx.$refs;
-})
-// let listRef = ref()
+let listRef = ref()
 const onDown = () => {
-  console.log(dom.value.listRef)
-  // dom.value.listRef.scrollToItem(list.value.length - 1); 
-  // window.scrollTo(0, document.body.scrollHeight);
+  listRef.value[list.value.length - 1].scrollIntoView({ block: 'start', behavior: 'smooth' });
 }
 
 const quickTrade = () => {
@@ -335,7 +324,6 @@ const onSure = () => {
 }
 
 const onInput = (value) => {
-  console.log('value', value)
   price.value = `${price.value}${value}`
 }
 

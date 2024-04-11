@@ -1,10 +1,12 @@
 <template>
-  <div class="animation">
-    <router-view v-slot="{ Component }">
-      <transition :name="transitionName">
-        <component :is="Component" />
-      </transition>
-    </router-view>
+  <div id="container" class="wrapper">
+    <div class="animation">
+      <router-view v-slot="{ Component }">
+        <transition :name="transitionName">
+          <component :is="Component" />
+        </transition>
+      </router-view>
+    </div>
   </div>
 </template>
 <script setup>
@@ -25,3 +27,6 @@ router.beforeEach((to, from) => {
   }
 });
 </script>
+<style>
+
+</style>
